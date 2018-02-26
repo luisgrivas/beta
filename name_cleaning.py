@@ -14,10 +14,10 @@ def clean(column):
                   .str.replace(latin[0], latin[1]))
 
 	for title in titles:
-		column = (column.str.replace(title, '').
-                  str.strip())
+		column = (column.str.replace(title, '')
+			.str.strip())
 
-	return cr.correction(column)
+	return column
 
 def split_names(column):
     df_column = column.str.split(' ', expand=True)
