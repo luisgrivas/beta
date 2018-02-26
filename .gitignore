@@ -70,6 +70,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
+notebooks/
 .ipynb_checkpoints
 
 # pyenv
@@ -101,5 +102,3 @@ ENV/
 
 # mypy
 .mypy_cache/
-
-notebooks/
