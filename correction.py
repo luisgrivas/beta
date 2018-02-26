@@ -9,6 +9,8 @@ with open('data/lastnames.pickle', 'rb') as f:
 
 DICT = NAMES
 
+#hola
+
 def change_dict():
     "Select which dictionary you want to use"
     global DICT

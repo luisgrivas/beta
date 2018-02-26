@@ -2,9 +2,12 @@
 import correction as cr
 import pandas as pd 
 
-titles = ['LIC ', 'LIC\.', 'DR ', 'DR\.', 'MC ', 'MC\.', 'M\.C\.', 'ING ', 'ING\.']
-latin_characters = [('Á', 'A'), ('É', 'E'), ('Í', 'I'), ('Ó', 'O'), ('Ú', 'U'), ('Ñ', 'N')]
+titles = ['LIC ', 'LIC\.', 'DR ', 'DR\.', 'MC ',
+		  'MC\.', 'M\.C\.', 'ING ', 'ING\.']
 
+latin_characters = [('Á', 'A'), ('É', 'E'), 
+					('Í', 'I'), ('Ó', 'O'), 
+					('Ú', 'U'), ('Ñ', 'N')]
 
 def clean(column):
 	column = column.fillna('')
