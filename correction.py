@@ -3,13 +3,10 @@ import pickle
 with open('data/names.pickle', 'rb') as f: 
 	NAMES = pickle.load(f)
 
-with open('data/lastnames.pickle', 'rb') as f: 
-    "loads "
+with open('data/lastnames.pickle', 'rb') as f:
     LASTNAMES = pickle.load(f)
 
 DICT = NAMES
-
-#hola
 
 def change_dict():
     "Select which dictionary you want to use"
@@ -23,14 +20,14 @@ def change_dict():
 
 
 def P(name, N=sum(DICT.values())): 
-    "Probability of `word`."
+    "Probability of `name`."
     if name in DICT.keys():
         return DICT[name] / N
     else:
         return 0
 
 def correction(name): 
-    "Most probable spelling correction for word."
+    "Most probable correction for name."
     return max(candidates(name.upper()), key=P)
 
 def candidates(name): 
@@ -38,7 +35,7 @@ def candidates(name):
     return (known([name]) or known(edits1(name)) or known(edits2(name)) or [name])
 
 def known(names): 
-    "The subset of `words` that appear in the dictionary of WORDS."
+    "The subset of `names` that appear in the dictionary of DICT."
     return set(w for w in names if w in DICT)
 
 def edits1(name):
