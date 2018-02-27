@@ -1,3 +1,3 @@
 # name-correction
 
-A name corrector module based on Norvig's spelling corrector.
+A module for correcting hispanic names based on Norvig's spelling corrector.
