@@ -1,3 +1,3 @@
-# name-correction
+# beta
 
-A module for correcting hispanic names based on Norvig's spelling corrector.
+...
