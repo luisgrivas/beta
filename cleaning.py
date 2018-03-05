@@ -1,7 +1,7 @@
 import funbetas as fb
 import pandas as pd
 
-titles = ['^LIC\s.*', '^DR\s.*', '^MC\s.*', '^ING\s.*']
+titles = ['^LIC\s', '^DR\s.', '^MC\s', '^ING\s']
 
 latin_characters = [('Á', 'A'), ('É', 'E'),
                     ('Í', 'I'), ('Ó', 'O'),
@@ -17,10 +17,12 @@ def drop_char(column, char_list=unwanted_characters):
         column = column.str.replace(char, '')
     return column
 
+
 def sub_char(column, tuple_list=latin_characters):
     for tup in tuple_list:
         column = column.str.replace(tup[0], tup[1])
     return column
+
 
 def sub_bydist(column, str_list, dist=fb.lev):
     for str1 in str_list:
@@ -28,16 +30,14 @@ def sub_bydist(column, str_list, dist=fb.lev):
         column[tmp <= 3] = str1
     return column
 
-#def clean(column):
-	#column = column.fillna('')
-    #column = drop_char(column)
-    #column = drop
+
+def clean_name(column):
+    return sub_char(drop_char((drop_char(column.fillna('')), titles))).str.strip()
 
 
 def split_names(column):
     df_column = column.str.split(' ', expand=True)
     return df_column
-
 
 
 def paste_name(*args):
