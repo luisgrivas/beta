@@ -27,7 +27,7 @@ def inserts(string):
     return [L + c + R for L, R in all_splits for c in letters]
 
 
-def lev(str1, str2, wheigts=(1, 1, 1)):
+def lev(str1, str2, weigts=(1, 1, 1)):
     m = len(str1)
     n = len(str2)
     dist = np.zeros((m + 1, n + 1))
@@ -49,7 +49,7 @@ def lev(str1, str2, wheigts=(1, 1, 1)):
     return dist[m][n]
 
 
-def dam_lev(str1, str2, wheigts=(1, 1, 1)):
+def dam_lev(str1, str2, weights=(1, 1, 1)):
     m = len(str1)
     n = len(str2)
     dist = np.zeros((m + 1, n + 1))
@@ -73,19 +73,3 @@ def dam_lev(str1, str2, wheigts=(1, 1, 1)):
                     dist[i + 1][j + 1] = min(dist[i + 1][j + 1],
                                              dist[i - 1][j - 1] + 1)
     return dist[m][n]
-
-
-dam_lev('AGUASCALIENTES', 'AGASCALIENTES')
-dam_lev('NUEVO LEON', 'AGASCALIENTES')
-dam_lev('COLIMA', 'AGASCALIENTES')
-dam_lev('ESTADO DE MEXICO', 'AGASCALIENTES')
-
-
-lev('LUIS', 'LIS')
-lev('LIZ', 'LIS')
-
-
-
-
-dam_lev('iL', 'Li')
-lev('Li', 'iL')
