@@ -1,4 +1,4 @@
-import funbetas as fb
+import distance as dis
 import pandas as pd
 
 titles = ['^LIC\s', '^DR\s.', '^MC\s', '^ING\s']
@@ -24,11 +24,12 @@ def sub_char(column, tuple_list=latin_characters):
     return column
 
 
-def sub_bydist(column, str_list, dist=fb.lev):
+def sub_bydist(column, str_list, dist=dis.lev, n=3):
+    result = column
     for str1 in str_list:
         tmp = column.apply(dist, args=(str1,))
-        column[tmp <= 3] = str1
-    return column
+        result[tmp <= n] = str1
+    return result
 
 
 def clean_name(column):
@@ -38,17 +39,3 @@ def clean_name(column):
 def split_names(column):
     df_column = column.str.split(' ', expand=True)
     return df_column
-
-
-def paste_name(*args):
-	if len(args) == 1:
-		return args
-	else:
-		tmp = (args[0].str.cat(list(args[1]), sep='_')
-		.str.rstrip('_')
-		.str.lstrip('_'))
-	if len(args) > 2:
-		tmp = (tmp.str.cat(list(arg), sep='_')
-			.str.rstrip('_')
-			.str.lstrip('_'))
-	return tmp
